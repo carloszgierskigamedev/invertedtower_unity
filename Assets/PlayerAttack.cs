@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Attack variables")]
     [SerializeField] private float _attackRange = 1f;
     [SerializeField] private float _attackRadius = 1f;
+    [SerializeField] private float _attackDamage = 25f;
     [Header("Layer")]
     [SerializeField] private LayerMask _enemyLayer = default;
 
@@ -29,11 +30,26 @@ public class PlayerAttack : MonoBehaviour
 
             foreach(Collider2D enemy in hitEnemies)
             {
-                Debug.Log("Hit");
+                Debug.Log("Hit!");
+                EnemyHealth enemyHealth = enemy.gameObject.GetComponent<EnemyHealth>();
+
+                if (enemyHealth == null) return;
+                else
+                {
+                    enemyHealth.HandleDamage(_attackDamage);
+                }
+
             }
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Vector3 mousePosition = GetMouseWorldPosition();
+        Vector3 attackDirection = (mousePosition - transform.position).normalized;
+        Vector3 attackPosition = transform.position + attackDirection * _attackRange; 
+        Gizmos.DrawWireSphere(attackPosition, _attackRadius);
+    }
 
     // Get mouse position in world with Z = 0f
     public static Vector3 GetMouseWorldPosition()

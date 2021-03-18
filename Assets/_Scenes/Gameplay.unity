@@ -2208,6 +2208,7 @@ GameObject:
   - component: {fileID: 778593184}
   - component: {fileID: 778593186}
   - component: {fileID: 778593187}
+  - component: {fileID: 778593188}
   m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
@@ -2327,6 +2328,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &778593188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778593183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0331e440049780e4b95b28136e658bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalHp: 100
 --- !u!1 &1174180050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,8 +2504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063f51cefa4edc5489ddd4b4d2881dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackRange: 1.3
-  _attackRadius: 0.7
+  _attackRange: 0.9
+  _attackRadius: 0.4
+  _attackDamage: 25
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 64
